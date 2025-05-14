@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Portal - Landing Page</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/apply">Apply</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <!-- Admin Login Link -->
+        <li><a href="/admin/login" class="admin-login">Admin Login</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Section -->
+<header class="hero">
+    <div class="overlay">
+        <h1>Welcome to Our Job Portal</h1>
+        <p>Your career journey begins here.</p>
+        <p>We connect talented individuals with top employers. Start your journey today.</p>
+        <a href="/apply" class="cta-button">Apply Now</a>
+    </div>
+</header>
+
+<!-- About Section -->
+<!--<section class="about">-->
+<!--    <h2>Why Join Us?</h2>-->
+
+<!--</section>-->
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Job Portal. All rights reserved.</p>
+</footer>
+</body>
+</html>

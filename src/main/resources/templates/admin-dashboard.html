@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/admin-dashboard.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="dashboard">
+    <aside class="sidebar">
+        <div class="logo">Admin Panel</div>
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-envelope-open-text"></i> Applications</a></li>
+                <li><a href="#"><i class="fas fa-user-cog"></i> Settings</a></li>
+                <li><a href="/admin/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <h1>Welcome, Admin!</h1>
+        <p>Here you can manage job applications.</p>
+
+        <h2>Submitted Applications</h2>
+        <table class="applications-table">
+            <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Cover Letter</th>
+                <th>Resume</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="app : ${applications}">
+                <td th:text="${app.name}">Name</td>
+                <td th:text="${app.email}">Email</td>
+                <td th:text="${app.coverLetter}">Cover</td>
+                <td><a th:href="@{'/files/' + ${app.resume}}" target="_blank">View Resume</a></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </main>
+
+</div>
+</body>
+</html>

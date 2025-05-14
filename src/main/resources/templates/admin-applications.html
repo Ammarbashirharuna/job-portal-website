@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin - Job Applications</title>
+    <link rel="stylesheet" th:href="@{/css/admin-style.css}">
+</head>
+<body>
+<h2>Submitted Applications</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Position</th>
+        <th>Resume</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="app : ${applications}">
+        <td th:text="${app.name}">Name</td>
+        <td th:text="${app.email}">Email</td>
+        <td th:text="${app.position}">Position</td>
+        <td>
+            <a th:href="@{/${app.resumePath}}" th:text="${app.resumePath}">Download</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
