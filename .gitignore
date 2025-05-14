@@ -1,3 +1,9 @@
+# Sensitive properties files
+src/main/resources/application-local.properties
+src/main/resources/application-dev.properties
+src/main/resources/application-prod.properties
+
+# Other common ignores
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
