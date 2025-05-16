@@ -23,6 +23,22 @@
     <main class="main-content">
         <h1>Welcome, Admin!</h1>
         <p>Here you can manage job applications.</p>
+        <div class="summary-cards">
+            <div class="card card-blue">
+                <h3>Total Applications</h3>
+                <p th:text="${totalApplications}">0</p>
+            </div>
+            <div class="card card-green">
+                <h3>Reviewed</h3>
+                <p>0</p>
+            </div>
+            <div class="card card-orange">
+                <h3>Pending</h3>
+                <p th:text="${totalApplications}">0</p> <!-- same as total for now -->
+            </div>
+        </div>
+
+
 
         <h2>Submitted Applications</h2>
         <table class="applications-table">
@@ -40,7 +56,16 @@
                 <td th:text="${app.email}">Email</td>
                 <td th:text="${app.coverLetter}">Cover</td>
                 <td><a th:href="@{'/files/' + ${app.resume}}" target="_blank">View Resume</a></td>
+                <td>
+                    <form th:action="@{/admin/delete/{id}(id=${app.id})}" method="post" style="display:inline;">
+                    <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
+                </td>
+
+
             </tr>
+
+
 
             </tbody>
         </table>

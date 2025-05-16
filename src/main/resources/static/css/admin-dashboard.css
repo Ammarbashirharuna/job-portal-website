@@ -91,3 +91,43 @@ body {
 .applications-table tr:hover {
     background-color: #f9fafc;
 }
+
+.summary-cards {
+    display: flex;
+    gap: 1.5rem;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    min-width: 200px;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+}
+
+.card p {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.card-blue {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+
+.card-green {
+    background: linear-gradient(135deg, #56ab2f, #a8e063);
+}
+
+.card-orange {
+    background: linear-gradient(135deg, #f2994a, #f2c94c);
+}
+
+

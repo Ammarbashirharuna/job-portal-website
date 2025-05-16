@@ -34,6 +34,7 @@ public class JobApplication {
     // The transient annotation ensures that the file isn't stored in the database
     private transient MultipartFile resume;
 
+
     // Getters and Setters
     public Long getId() {
         return id;

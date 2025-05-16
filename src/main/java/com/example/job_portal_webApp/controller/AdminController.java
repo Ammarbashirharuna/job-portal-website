@@ -3,6 +3,7 @@ package com.example.job_portal_webApp.controller;
 import com.example.job_portal_webApp.model.Admin;
 import com.example.job_portal_webApp.model.JobApplication;
 import com.example.job_portal_webApp.repository.AdminRepository;
+import com.example.job_portal_webApp.repository.JobApplicationRepository;
 import com.example.job_portal_webApp.service.JobApplicationService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +22,14 @@ public class AdminController {
     @Autowired
     private JobApplicationService jobApplicationService;
 
+    @Autowired
+    private JobApplicationRepository jobApplicationRepository;
+
     // Show admin login form
     @GetMapping("/admin/login")
     public String showLoginForm(Model model) {
         model.addAttribute("admin", new Admin());
+
         return "admin-login";
     }
 
@@ -50,8 +55,18 @@ public class AdminController {
 
         List<JobApplication> applications = jobApplicationService.getAllApplications();
         model.addAttribute("applications", applications);
+        model.addAttribute("totalApplications", applications.size());
         return "admin-dashboard";
     }
+
+//    deleting the application
+@PostMapping("/admin/delete/{id}")
+public String deleteApplication(@PathVariable Long id){
+    jobApplicationRepository.deleteById(id);
+    return "redirect:/admin/dashboard";
+}
+
+
 
 
     // Logout admin
